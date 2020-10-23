@@ -13447,6 +13447,13 @@ postcss-env-function@^2.0.2:
     postcss "^7.0.2"
     postcss-values-parser "^2.0.0"
 
+postcss-flex-item@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-flex-item/-/postcss-flex-item-1.2.0.tgz#c644f463f2fdb775858843c3e8bc2532aa9e518a"
+  integrity sha512-QyiQ1Uwx1k9eOUlVSl7SP7QlsVmQFAgRPt3uLtlG7OhJm/ntWrwBVVNoKBx3lm4ATANy4x0HtBDAYUgg3bvo1A==
+  dependencies:
+    postcss "^7.0.0"
+
 postcss-flexbugs-fixes@4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/postcss-flexbugs-fixes/-/postcss-flexbugs-fixes-4.2.1.tgz#9218a65249f30897deab1033aced8578562a6690"
@@ -17074,6 +17081,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^3.7.4:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 typescript@^4.0.2:
   version "4.0.3"

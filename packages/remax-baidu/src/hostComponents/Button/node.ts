@@ -1,0 +1,28 @@
+export const alias = {
+  className: 'class',
+  id: 'id',
+  style: 'style',
+  animation: 'animation',
+  size: 'size',
+  type: 'type',
+  plain: 'plain',
+  formType: 'form-type',
+  openType: 'open-type',
+  hoverClassName: 'hover-class',
+  hoverStopPropagation: 'hover-stop-propagation',
+  hoverStartTime: 'hover-start-time',
+  hoverStayTime: 'hover-stay-time',
+  disabled: 'disabled',
+  loading: 'loading',
+  onGetPhoneNumber: 'bindgetphonenumber',
+  onGetUserInfo: 'bindgetuserinfo',
+  onOpenSetting: 'bindopensetting',
+  onContact: 'bindcontact',
+  onChooseAddress: 'bindchooseAddress',
+  onChooseInvoiceTitle: 'bindchooseInvoiceTitle',
+  onTap: 'bindtap',
+  onClick: 'bindtap',
+  contact: 'contact',
+};
+
+export const props = Object.values(alias);

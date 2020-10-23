@@ -1,0 +1,28 @@
+<%_ if (id === 'swiper') { _%>
+<block s-for="i.children">
+  <swiper-item item-id="{{i.nodes[item].props.itemId}}">
+    <block s-for="i.nodes[item].children" s-for-item="sItem">
+      <template is="{{_h.tid(i.nodes[item].nodes[sItem].type)}}" data="{{{i: i.nodes[item].nodes[sItem] }}}" />
+    </block>
+  </swiper-item>
+</block>
+<%_ } else if (type === 'native') { _%>
+<block s-for="i.children">
+  <block s-if="i.nodes[item].props['slot']">
+    <view slot="{{i.nodes[item].props['slot']}}" <% for(let i=0;i < slotView.props.length; i++) { %>
+      <%=slotView.props[i]%>="{{i.nodes[item].props['<%=slotView.props[i]%>']}}" <%}%>
+    >
+      <block s-for="i.nodes[item].children" s-for-item="sItem">
+        <template is="{{_h.tid(i.nodes[item].nodes[sItem].type)}}" data="{{{i: i.nodes[item].nodes[sItem] }}}" />
+      </block>
+    </view>
+  </block>
+  <block s-else>
+    <template is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+  </block>
+</block>
+<%_ } else { _%>
+<block s-for="i.children">
+  <template class="{{_h.fc(i.nodes[item].props.class)}}" style="{{_h.fst(i.nodes[item].props.style)}}" is="{{_h.tid(i.nodes[item].type)}}" data="{{{i: i.nodes[item] }}}" />
+</block>
+<%_ } _%>

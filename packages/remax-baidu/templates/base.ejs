@@ -1,0 +1,73 @@
+<template name="REMAX_TPL">
+  <block s-for="root.children">
+    <template
+      class="{{_h.fc(root.nodes[item].props.class)}}"
+      style="{{_h.fst(root.nodes[item].props.style)}}"
+      is="{{_h.tid(root.nodes[item].type)}}"
+      data="{{{ i: root.nodes[item] }}}"
+    />
+  </block>
+</template>
+<import-sjs module="_h">
+  module.exports = {
+    v: function(value) {
+      return value !== undefined ? value : '';
+    },
+    tid: function (type) {
+      return 'REMAX_TPL_1_' + type;
+    },
+    fc: function (selectors) {
+      if(!selectors) return '';
+      return selectors.split(/\s+/).map(function(c){
+        return 'remax_flex_' + c.replace(/___\S+\b/, '');
+      }).join(' ');
+    },
+    fst: function (style) {
+      if(!style) return '';
+      var ns = '';
+      var properties = style.split(';');
+      properties.forEach(function(p) {
+        var pv = p.split(':');
+        if (['flex', 'order', 'flex-basis', 'flex-grow', 'flex-shrink'].indexOf(pv[0]) > -1) {
+          ns = ns + p + ';'
+        }
+      });
+      return ns;
+    },
+    st: function (style) {
+      if(!style) return '';
+      var ns = '';
+      var properties = style.split(';');
+      properties.forEach(function(p) {
+        var pv = p.split(':');
+        if (['flex', 'order', 'flex-basis', 'flex-grow', 'flex-shrink'].indexOf(pv[0]) == -1) {
+          ns = ns + p + ';'
+        }
+      });
+      return ns;
+    }
+  };
+</import-sjs>
+<%_ for (let component of components) { %>
+  <%_ let componentDepth = depth[component.id] || 10; %>
+  <%/* 百度 text 标签内不能嵌套 template */%>
+  <%_ if (component.id === 'text') { %> 
+    <%- include('./text.ejs', {
+    props: component.props,
+    id: component.id,
+    type: component.type,
+    depth: componentDepth
+    }) _%>
+  <%_ } else { _%>
+    <%- include('./component.ejs', {
+      props: component.props,
+      id: component.id,
+      templateId: 1,
+      type: component.type,
+      slotView: slotView
+    }) _%>
+  <%_ } _%>
+<%_ } _%>
+<template name="REMAX_TPL_1_plain-text" data="{{i: i}}">
+  <block>{{i.text}}</block>
+</template>
